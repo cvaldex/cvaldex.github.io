@@ -1,45 +1,45 @@
 <HTML>
   <HEAD>
+
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+
     <script type="text/javascript">
       var multiplo1 = 1;
-      var multiplo2 = 1;
-      //var indexOK;
+      var multiplo2 = 2;
 
       function carga(){
-        //console.log("Multiplo 1 -->: " + multiplo1);
-        //console.log("Multiplo 2 -->: " + multiplo2);
-document.body.style.zoom="200%"
+        document.body.style.zoom="200%"
+
         document.getElementById('option1').checked = false;
         document.getElementById('option2').checked = false;
         document.getElementById('option3').checked = false;
 
-        //document.getElementById('desiredInput')
-
         var indexOK = Math.floor((Math.random() * 3) + 1);
-        //console.log("indexOK: " + indexOK)
+
         for (i = 1; i < 4; i++) {
-          //console.log("i: " + i + " indexOK: " + indexOK);
           if(i == indexOK){
-          //  console.log("Dentro del IF");
             document.getElementById('option' + i).value = multiplo1 * multiplo2;
             document.getElementById('label'+ i).innerHTML= multiplo1 * multiplo2;
             document.getElementById('imageDiv'+i).innerHTML="";
           }
           else{
-            //var img = document.createElement("IMG");
-            //img.src = "delete.png";
-            //document.getElementById('imageDiv'+i).appendChild(img);
-
             var shuffleValue = Math.floor((Math.random() * 100) + 1);
             document.getElementById('option' + i).value = shuffleValue;
             document.getElementById('label'+ i).innerHTML= shuffleValue;
-            //document.getElementById('imageDiv'+ i).innerHTML= multiplo1 * multiplo2;
           }
           document.getElementById('label'+i).style.color = "black";
         }
-        document.getElementById('imageDiv1').style.display = 'none';
-        document.getElementById('imageDiv2').style.display = 'none';
-        document.getElementById('imageDiv3').style.display = 'none';
+        //document.getElementById('imageDiv1').style.display = 'none';
+        //document.getElementById('imageDiv2').style.display = 'none';
+        //document.getElementById('imageDiv3').style.display = 'none';
 
         document.getElementById('ejercicio').innerHTML=multiplo1 + " X " + multiplo2;
 
@@ -56,11 +56,11 @@ document.body.style.zoom="200%"
            if(multiplo2 == 10){
              multiplo2 = 1;
              multiplo1++;
-             console.log("es mayor que 10");
+             //console.log("es mayor que 10");
            }
            else{
              multiplo2++;
-             console.log("Multiplo 2: " + multiplo2);
+             //console.log("Multiplo 2: " + multiplo2);
            }
            carga();
            return false;
@@ -91,20 +91,31 @@ document.body.style.zoom="200%"
       <form id="formulario" onsubmit="return calcular();">
         <label id="ejercicio"></label>
           <div>
-    <input type="radio" id="option1" name="result" value="">
-    <label id="label1" for="opcion-1">1</label><div id="imageDiv1"></div>
-    <BR>  <BR>
-    <input type="radio" id="option2" name="result" value="">
-    <label id="label2" for="opcion-2">2</label><div id="imageDiv2"></div>
-    <BR>  <BR>
-    <input type="radio" id="option3" name="result" value="">
-    <label id="label3" for="opcion-3">3</label><div id="imageDiv3"></div>
-  </div>
-  <div>
-    <br/>
-    <button type="submit">Calcular</button>
-  </div>
-</form>
+            <input type="radio" id="option1" name="result" value="">
+            <label id="label1" for="opcion-1">1</label><div id="imageDiv1"></div>
+            <BR>
+
+            <input type="radio" id="option2" name="result" value="">
+            <label id="label2" for="opcion-2">2</label><div id="imageDiv2"></div>
+            <BR>
+
+            <input type="radio" id="option3" name="result" value="">
+            <label id="label3" for="opcion-3">3</label><div id="imageDiv3"></div>
+          </div>
+
+          <div>
+            <br/>
+            <button type="submit">Calcular</button>
+          </div>
+      </form>
 </H1>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
   </BODY>
 </HTML>
