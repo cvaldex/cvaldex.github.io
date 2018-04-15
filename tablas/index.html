@@ -12,8 +12,8 @@
 
 
     <script type="text/javascript">
-      var multiplo1 = 1;
-      var multiplo2 = 2;
+      var multiplo1 = 2;
+      var multiplo2 = 1;
 
       function carga(){
         document.body.style.zoom="200%"
@@ -47,6 +47,9 @@
 
        function calcular(){
          var selectedResult = document.querySelector('input[name="result"]:checked').value;
+
+         alert(selectedResult);
+
          //alert(selectedResult + ' was selected!');
          var itsOK = selectedResult == (multiplo1 * multiplo2);
          console.log("Resultado: "+itsOK);
