@@ -12,7 +12,13 @@
 
 
     <script type="text/javascript">
-      var multiplo1 = 2;
+      let params = (new URL(document.location)).searchParams;
+      let start = params.get("start");
+
+      console.log("Start: " + start);
+
+
+      var multiplo1 = start;
       var multiplo2 = 1;
 
       function carga(){
@@ -57,60 +63,40 @@
 
          }
       }
-
-      function calcularOld(){
-        var selectedResult = document.querySelector('input[name="result"]:checked').value;
-
-        var itsOK = selectedResult == (multiplo1 * multiplo2);
-        console.log("Resultado: "+itsOK);
-        if(itsOK){
-          if(multiplo2 == 10){
-            multiplo2 = 1;
-            multiplo1++;
-          }
-          else{
-            multiplo2++;
-          }
-          carga();
-          return false;
-        }
-        else{
-          var tmpString = document.querySelector('input[name="result"]:checked').id
-          var lastChar = tmpString.charAt(tmpString.length - 1);
-
-          document.getElementById('divOpcion'+lastChar).className = "alert alert-danger";
-          return false;
-
-        }
-     }
-
-
     </script>
   </HEAD>
+
   <BODY onload="carga();">
     <H1>
-      <form id="formulario" onsubmit="return calcular();">
-        <div class="alert alert-primary" role="alert" id="ejercicio" onclick="alert('clickeado')"></div>
+      <!--form id="formulario" onsubmit="return calcular();"-->
+      <div class="container">
+          <div class="row">
+              <div class="col"></div>
+              <div class="col-6">
+                  <div class="alert alert-primary" role="alert" id="ejercicio" onclick="alert('clickeado')"></div>
 
-        <div class="alert alert-success" role="alert" id="divOpcion1">
-          <!--input type="radio" id="option1" name="result" value=""-->
-          <label id="label1" for="opcion-1">1</label>
-        </div>
+                  <div class="alert alert-success" role="alert" id="divOpcion1">
+            <!--input type="radio" id="option1" name="result" value=""-->
+                    <label id="label1" for="opcion-1">1</label>
+                </div>
 
-        <div class="alert alert-success" role="alert" id="divOpcion2">
-          <!--input type="radio" id="option2" name="result" value=""-->
-          <label id="label2" for="opcion-2">2</label>
-        </div>
+                <div class="alert alert-success" role="alert" id="divOpcion2">
+            <!--input type="radio" id="option2" name="result" value=""-->
+                <label id="label2" for="opcion-2">2</label>
+                </div>
 
-        <div class="alert alert-success" role="alert" id="divOpcion3">
-          <!--input type="radio" id="option3" name="result" value=""-->
-          <label id="label3" for="opcion-3">3</label>
-        </div>
-
+                <div class="alert alert-success" role="alert" id="divOpcion3">
+            <!--input type="radio" id="option3" name="result" value=""-->
+                <label id="label3" for="opcion-3">3</label>
+                </div>
+                </div>
+                <div class="col"></div>
+            </div>
+    </div>
         <!--div>
           <button type="submit" class="btn btn-success">Calcular</button>
         </div-->
-      </form>
+      <!--/form-->
 </H1>
 
 
