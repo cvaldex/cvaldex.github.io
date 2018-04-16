@@ -1,0 +1,118 @@
+<HTML>
+    <HEAD>
+
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <script type="text/javascript">
+            //Obtener la tabla de inicio
+            let params = (new URL(document.location)).searchParams;
+            let start = params.get("start");
+
+            console.log("Start: " + start);
+
+            //Números a multiplicar
+            var multiplo1 = start;
+            var multiplo2 = 1;
+
+            var ok = 0;
+            var nook = 0;
+
+            function carga(){
+                document.body.style.zoom="200%"
+
+                var indexOK = Math.floor((Math.random() * 3) + 1);
+
+                for (i = 1; i < 4; i++) {
+                    if(i == indexOK){
+                        document.getElementById('label'+ i).innerHTML= multiplo1 * multiplo2;
+                        document.getElementById('divOpcion'+i).setAttribute("onclick", "calcular('"+multiplo1 * multiplo2+"' , '"+ i + "')");
+                    }
+                    else{
+                        var shuffleValue = Math.floor((Math.random() * 100) + 1);
+                        document.getElementById('label'+ i).innerHTML= shuffleValue;
+                        document.getElementById('divOpcion'+i).setAttribute("onclick", "calcular('"+shuffleValue+"' , '"+ i + "')");
+                    }
+                    document.getElementById('divOpcion'+i).className = "alert alert-success";
+                }
+                document.getElementById('ejercicio').innerHTML=multiplo1 + " X " + multiplo2;
+
+                document.getElementById('ok').innerHTML = ok;
+                document.getElementById('nook').innerHTML = nook;
+            }
+
+            function calcular(answer , divId){
+                var itsOK = answer == (multiplo1 * multiplo2);
+
+                if(itsOK){
+                    if(multiplo2 == 10){
+                        multiplo2 = 1;
+                        multiplo1++;
+                    }
+                    else{
+                        multiplo2++;
+                    }
+
+                    ok++;
+                    carga();
+                    return false; //??
+                }
+                else{
+                    document.getElementById('divOpcion'+divId).className = "alert alert-danger";
+                    nook++;
+                    document.getElementById('nook').innerHTML = nook;
+                    return false; //??
+                }
+            }
+        </script>
+    </HEAD>
+
+    <BODY onload="carga();">
+      <H1>
+          <div class="container">
+              <div class="row">&nbsp;</div>
+              <div class="row">
+                  <div class="col"></div>
+                  <div class="col-8">
+                      <div class="alert alert-primary" role="alert" id="ejercicio"></div>
+
+                      <div class="alert alert-success" role="alert" id="divOpcion1">
+                          <label id="label1" for="opcion-1"></label>
+                      </div>
+
+                      <div class="alert alert-success" role="alert" id="divOpcion2">
+                          <label id="label2" for="opcion-2"></label>
+                      </div>
+
+                      <div class="alert alert-success" role="alert" id="divOpcion3">
+                          <label id="label3" for="opcion-3"></label>
+                      </div>
+                  </div>
+                  <div class="col"></div>
+    </H1>
+    <H2>
+                  <div class="row">
+                      <div class="col"></div>
+                      <div class="col-4">
+                          <div class="alert alert-warning" role="alert" id="ok"></div>
+                      </div>
+                      <div class="col-4">
+                          <div class="alert alert-warning" role="alert" id="nook"></div>
+                      </div>
+                      <div class="col">
+
+                      </div>
+                  </div class="row">
+          </div>
+      </div>
+<H2>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </BODY>
+</HTML>
