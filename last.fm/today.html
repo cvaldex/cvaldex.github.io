@@ -6,7 +6,7 @@
 
       <script>
           var date = new Date();
-          //var day = date.getDate();
+
           var day = ("0" + (date.getDate())).slice(-2);
 
           var month = ("0" + (date.getMonth() + 1)).slice(-2);
@@ -14,8 +14,7 @@
           var today = year+"-"+month+"-"+day;
           var url = "https://www.last.fm/es/user/c_valdex/library?from="+today+"&rangetype=day";
 
-          //https://www.last.fm/es/user/c_valdex/library?from=2017-04-05&rangetype=day
-            window.location = url;
+            //window.location = url;
       </script>
       <link rel='shortcut icon' type='image/x-icon' href='iron_maiden_avatar_o12_icon.ico' />
   </head>
