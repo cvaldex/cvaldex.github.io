@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+      <title>Redireccionando a Today In Music</title>
+
+      <script>
+        var today = new Date();
+        var tomorrow = new Date();
+        tomorrow.setDate(today.getDate()+1);
+
+        console.log("Month: " + tomorrow.getMonth());
+
+
+          //var date = new Date();
+
+          var day = ("0" + (tomorrow.getDate())).slice(-2);
+
+          var month = ("0" + (tomorrow.getMonth() + 1)).slice(-2);
+          //var year = tomorrow.getFullYear();
+          //var today = year+"-"+month+"-"+day;
+
+          //https://www.thisdayinmusic.com/search?keyword=&date=26&month=6
+
+          var url = "https://www.thisdayinmusic.com/search?keyword=&date="+day+"&month="+month;
+
+          console.log("URL:" + url);
+
+          window.location = url;
+      </script>
+      <link rel='shortcut icon' type='image/x-icon' href='lastfm.png' />
+  </head>
+<body>
+<h1>Redireccionando a Today In Music</h1>
+
+</body>
+</html>
